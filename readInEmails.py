@@ -7,19 +7,26 @@ import csv
 def read_emails(filePath):
     emailsDictionary = {}  #create the dictionary to store data
 
-    with open(filePath, 'r') as file:
-        fileReader = csv.reader(file)
+    try:
+        with open(filePath, 'r') as file:
+            fileReader = csv.reader(file)
 
-        #Read in header row and then move on to data
-        headers = next(fileReader)
+            headers = next(fileReader) #Read in header row and then move on to data
 
-        for row in fileReader:  #iterates through each row in .csv file
-            #This format works assuming columns are ordered: [Email, FirstName, LastName]
-            email, firstName, lastName = row  #Tuple Unpacking: row [email, firstName, lastName] into corresponding variables
-            
-            if email not in emailsDictionary: #bounds check for email duplicates 
-                emailsDictionary[email] = {'FirstName': firstName, 'LastName': lastName}  #loads dictionary with data
-            else:
-                print(f"{email} is a duplicate. Not adding to dictionary.")
+            for row in fileReader:  #iterates through each row in .csv file
+                try: 
+                    email, firstName, lastName = row  #Tuple Unpacking: assumes row column order is [email, firstName, lastName]
+                    
+                    if email not in emailsDictionary: #bounds check for email duplicates 
+                        emailsDictionary[email] = {'FirstName': firstName, 'LastName': lastName}  #loads dictionary with data
+                    else:
+                        print(f"{email} is a duplicate. Not adding to dictionary.")
+                except ValueError as e:
+                    print(f"ERROR: data row {e} was unable to be processed due to format")
+    except FileNotFoundError:
+        print(f"ERROR: the file was not found with file path {filePath}")
+    except Exception as e:
+        print(f"ERROR: {e} error occured")
 
+    
     return emailsDictionary #return the dictionary of emails 
