@@ -1,23 +1,20 @@
 #Brandon Bergado 12/08/2023
 
-#This script is the S3 Bucket Access Manager
-
-#import the required dependencies from AWS
-
-def writeToBucket(bucketName, keyName):
-    #maybe need a file path variable?
+#This script creates the AWS S3 Access Manager
 
 
-    #JAVA CODE FOR EXAMPLE
+import boto3
+import json
 
-    #client variable that connects to AWS, like an API messenger
-    final AmazonS3 s3 = AmazonS3ClientBuilder.standard().withRegion("us-east-1").build();
+#create and set up AWS credentials variables
+aws_access_key_id = "AKIAZNOC3QSSJQARFJFS"
+aws_secret_access_key = "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"
 
-    #trying to put the object in the bucket
-    try {
-        s3.putObject(bucket_name, key_name, new File(file_path));
-    } 
-    catch (AmazonServiceException e) {
-        System.err.println(e.getErrorMessage());
-        System.exit(1);
-    }
+def createS3client():
+    #create the S3 client
+    s3client = boto3.client('s3client',
+                                aws_access_key_id =  aws_access_key_id,
+                                aws_secret_access_key = aws_secret_access_key
+                                )
+
+    return s3client
