@@ -7,14 +7,14 @@ import boto3
 import json
 
 #create and set up AWS credentials variables
-aws_access_key_id = "AKIAZNOC3QSSJQARFJFS"
-aws_secret_access_key = "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"
+awsAccessKeyId = "xxxxxxxxxxxxxxxxxxxx"
+awsSecretAccessKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 def createS3client():
     #create the S3 client
     s3client = boto3.client('s3client',
-                                aws_access_key_id =  aws_access_key_id,
-                                aws_secret_access_key = aws_secret_access_key
+                                awsAccessKeyId =  awsAccessKeyId,
+                                awsSecretAccessKey = awsSecretAccessKey
                                 )
 
     return s3client
