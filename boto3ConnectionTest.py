@@ -37,7 +37,7 @@ def connect_to_s3(bucket_name, aws_access_key_id, aws_secret_access_key, aws_ses
 
 # Example Usage:
 # Replace 'your_bucket_name', 'your_access_key', and 'your_secret_key' with your actual values.
-s3_client = connect_to_s3('clientemailsbucket', 'AKIAZNOC3QSSK6VV7R4J', 'RIv2RZ09zJyl1ZSUzem17rBjgGaa2UCE+dSVTr8X')
+s3_client = connect_to_s3('clientemailsbucket', 'xxxxxxxxxxxxxxxxxxxx', 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
 
 if s3_client:
     # Now you can perform S3 operations using the 's3_client' object.
