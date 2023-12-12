@@ -1,7 +1,7 @@
 import json
 
 #create and specific bucket name variable
-bucketName = "bucket name"
+bucketName = "clientemailsbucket"
 
 def writeToS3Bucket(s3client, emailsDictionary):
 
