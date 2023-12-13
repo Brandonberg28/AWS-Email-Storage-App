@@ -1,6 +1,10 @@
-#Brandon Bergado 11/30/2023
+"""
+* File: readInEmails.py
+* Author: Brandon Bergado 
+* Date created: 11/30/2023
 
-#Program that reads in a .csv file containing the emails of clients and stores them in a dictionary
+* This script that reads in a .csv file containing the emails of clients, and stores them in a dictionary
+"""
 
 import csv
 
@@ -22,7 +26,7 @@ def read_emails(filePath):
                     else:
                         print(f"{email} is a duplicate. Not adding to dictionary.")
                 except ValueError as e:
-                    print(f"ERROR: data row {e} was unable to be processed due to format")
+                    print(f"ERROR: {e} was unable to be processed due to data format")
     except FileNotFoundError:
         print(f"ERROR: the file was not found with file path {filePath}")
     except Exception as e:
