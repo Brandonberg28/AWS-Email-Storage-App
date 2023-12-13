@@ -1,6 +1,10 @@
-#Brandon Bergado 11/30/2023
+"""
+* File: readInEmails.py
+* Author: Brandon Bergado 
+* Date created: 11/30/2023
 
-#Program that reads in a .csv file containing the emails of clients and stores them in a dictionary
+* This script that reads in a .csv file containing the emails of clients, and stores them in a dictionary
+"""
 
 import csv
 

@@ -1,7 +1,12 @@
-#Brandon Bergado 11/30/2023
+"""
+* File: main.py
+* Author: Brandon Bergado 
+* Date created: 11/30/2023
 
-#Main program that calls function to read in client emails from .csv file
-
+* Main script that:
+* reads a .csv file into a dictionary, converts that into JSON data,
+* creates an AWS S3 client, and then sends the data to an S3 bucket.
+"""
 
 from readInEmails import read_emails
 from S3AccessManager import createClient
@@ -14,9 +19,9 @@ def main():
     s3client = createClient()                 #create S3 client variable to connect to Bucket
     writeToS3Bucket(s3client, emailsDictionary) #write to S3 bucket with AWS S3 client
 
-    #Print  dictionary
-    for email, data in emailsDictionary.items():
-        print(f"Email: {email}, FirstName: {data['FirstName']}, LastName: {data['LastName']}")
+    #Print  dictionary for debugging purposes
+    #for email, data in emailsDictionary.items():
+    #    print(f"Email: {email}, FirstName: {data['FirstName']}, LastName: {data['LastName']}")
 
 main()
 

@@ -1,6 +1,10 @@
-#Brandon Bergado 12/08/2023
+"""
+* File: S3AccessManager.py
+* Author: Brandon Bergado 
+* Date created: 12/10/2023
 
-#This script creates the AWS S3 Access Manager
+* This script creates the client to connect to AWS
+"""
 
 import boto3
 import json
